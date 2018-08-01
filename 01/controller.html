@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular controller</title>
+</head>
+<body ng-app="myMoudel" ng-controller="demoController">
+    
+</body>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+   var app = angular.module('myMoudel',[]);
+
+   //angular在执行控制器函数时，会根据参数的名字（$scope）去自动注入对象
+   //根据参数名来传递对象的，所以参数名一定要正确（$scope）
+
+   //由于app.controller('demoController',function($scope){})这种创建控制器的方法
+   //会被js混淆影响，所以推荐使用以下方式来创建模块的控制器
+   app.controller('demoController',['$scope',function(a){
+       console.log(a)
+   }])
+</script>
+</html>

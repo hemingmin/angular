@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular 表达式</title>
+    <style>
+        .ng-cloak { display:none;}
+    </style>
+</head>
+<body class="ng-cloak body" ng-controller="dController">
+    {{hello.world}}
+    
+</body>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+  var app = angular.module('hw',[]);
+  app.controller('dController',['$scope',function($scope){
+      $scope.hello = {
+          world:'dddd'
+      }
+  }])
+</script>
+</html>
