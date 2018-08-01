@@ -1,0 +1,21 @@
+{
+  "name": "02",
+  "homepage": "https://github.com/hemingmin/angular",
+  "authors": [
+    "hemingmin <369093923@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.2",
+    "bootstrap": "^4.1.3"
+  }
+}

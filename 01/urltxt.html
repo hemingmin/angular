@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    //使用a链接解析url
+    var url = 'https://www.baidu.com:8080/aaa/1.html?id=10#name';
+    var aLink = document.createElement('a');
+    aLink.href = url;
+    console.log(JSON.stringify(aLink.search));
+    console.log(JSON.stringify(aLink.hash));
+</script>
+</html>
