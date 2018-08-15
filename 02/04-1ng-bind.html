@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ng-bind</title>
+</head>
+<body ng-app="myApp" ng-init="username='<h1>shit</h1>'">
+    <!-- <strong>{{username}}</strong> 刷新时会闪烁-->
+    
+    <!-- ng-bind刷新时不会闪烁 -->
+    <!-- ng-bind在绑定值是html的时候，为了安全（防止注入脚本）会转义成字符 -->
+    <strong ng-bind="username"></strong>
+
+    <!-- ng-bind-html可以帮到一段html,要使用的话，得引入angular的另一个包santize，bower去安装一下引入，参考04ng-bind-html -->
+    <strong ng-bind-html="username"></strong>
+</body>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script>
+    var app = angular.module('myApp',['ngSanitize'])
+</script>
+</html>

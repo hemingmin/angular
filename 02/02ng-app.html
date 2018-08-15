@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解决ng-app不能出现多次的问题，如果需要多个模块该怎么处理</title>
+</head>
+<body ng-app="myApp ">
+    <!-- angular找到第一个ng-app后，就不会再找了 -->
+    <div ng-controller="App1Controller">
+        <input type="button" value="按钮1" ng-click="do1()">
+    </div>
+    <div ng-controller="App2Controller">
+        <input type="button" value="按钮2" ng-click="do2()">
+    </div>
+</body>
+<script src="bower_components/angular/angular.js"></script>
+<script>
+    // 第一个模块
+    var myApp1 = angular.module('myApp1',[]);
+    myApp1.controller('App1Controller',['$scope',function($scope){
+        $scope.do1 = function(){
+            console.log(111111)
+        }
+    }])
+
+    //第二个模块
+    var myApp2 = angular.module('myApp2',[]);
+    myApp2.controller('App2Controller',['$scope',function($scope){
+        $scope.do2 = function(){
+            console.log(222222)
+        }
+    }])
+
+    //把两个模块组合到一起
+    var myApp = angular.module('myApp',['myApp1','myApp2']);
+
+</script>
+</html>
