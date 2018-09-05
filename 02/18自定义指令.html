@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义指令</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- angular放在这里，那么ng-cloak加上，那么就没有闪烁的小问题了 -->
+    <script src="bower_components/angular/angular.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="appController">
+    <breadcrumb data="{{pathData}}"></breadcrumb>
+</body>
+
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('appController',['$scope',function($scope){
+        $scope.pathData = ['home','itcast','itheima','bbs'];
+    }])
+    app.directive('breadcrumb',[function(){
+        return {
+            scope:{},
+            templateUrl:'tml/template1.html',
+            replace:true,
+            link:function(scope,element,attributes){
+                scope.data = JSON.parse(attributes.data)
+                console.log(scope.data)
+            }
+        }
+    }])
+</script>
+</html>

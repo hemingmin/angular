@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义指令</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- angular放在这里，那么ng-cloak加上，那么就没有闪烁的小问题了 -->
+    <script src="bower_components/angular/angular.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body ng-app="demoApp">
+    <btn>haha</btn>
+</body>
+
+<script>
+    var app = angular.module('demoApp',[]);
+    app.directive('btn',[function(){
+        return {
+            // 指令对象的transclude必须设置为true，才可以在模板中使用ng-transclude指令,才能把haha传到template里面去
+            transclude:true,
+            replace:true,//把<btn></btn>替换成template里面的内容
+            template:'<button class="btn btn-primary btn-lg" ng-transclude></button>'
+        }
+    }])
+</script>
+</html>

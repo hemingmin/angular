@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AngularJS 路由实例 - 菜鸟教程</title>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+</head>
+<body ng-app='routingDemoApp'>
+ 
+    <h2>AngularJS 路由应用</h2>
+    <ul>
+        <li><a href="#!/">首页</a></li>
+        <li><a href="#!/computers">电脑</a></li>
+        <li><a href="#!/printers">打印机</a></li>
+        <li><a href="#!/blabla">其他</a></li>
+    </ul>
+     
+    <div ng-view></div>
+    <script id="a_html" type="text/ng-template">
+        <h1>{{title}}</h1>
+    </script>
+    <script>
+        var app = angular.module('routingDemoApp',['ngRoute'])
+        app.config(['$routeProvider', function($routeProvider){
+            $routeProvider
+            .when('/',{
+                template:'这是首页页面'
+            })
+            .when('/computers',{
+                controller:'aController',
+                templateUrl:'a_html'
+            })
+            .when('/printers',{template:'这是打印机页面'})
+            .otherwise({redirectTo:'/'});//其他的请求，默认页面
+        }]);
+        app.controller('aController',['$scope',function($scope){
+            $scope.title = 'dddd';
+        }])
+    </script>
+</body>
+</html>

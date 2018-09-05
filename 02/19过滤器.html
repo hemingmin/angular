@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤器</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- angular放在这里，那么ng-cloak加上，那么就没有闪烁的小问题了 -->
+    <script src="bower_components/angular/angular.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body ng-app="demoApp">
+    <!-- <h1>{{100000000000 | currency }}</h1> -->
+    <!-- <h1>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss'}}</h1> -->
+    <div ng-controller="demoController">
+        <input type="text" ng-model="p1.name">
+        <p>{{p1 | json}}</p>
+        <br>
+        <pre>{{p1 | json}}</pre>
+        <p>{{text}}</p>
+        <h1>{{2342343.141592653 | number:2}}</h1>
+    </div>
+    <div>
+        <!-- html中使用过滤器 -->
+        {{'hahaha2hahhahahahah' | limitTo:10:3}}
+    </div>
+</body>
+
+<script>
+    var app = angular.module('demoApp',[]);
+    app.controller('demoController',['$scope','$filter',function($scope,$filter){
+        $scope.p1 = {
+            name:'张三',
+            age:19,
+            gender:false,
+            zhangfeng:{
+                name:'张三',
+                age:19,
+                gender:false
+            },
+            ceshi:[
+                {
+                    name:'张三',
+                    age:19,
+                    gender:false
+                },
+                {
+                    name:'张三',
+                    age:19,
+                    gender:false
+                },
+                {
+                    name:'张三',
+                    age:19,
+                    gender:false
+                }
+            ]
+        }
+        $scope.text = $filter('limitTo')('hahaha2hahhahahahah',10,3);
+    }])
+</script>
+</html>

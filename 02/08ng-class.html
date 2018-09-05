@@ -16,7 +16,8 @@
        <option value="red">红色</option>
        <option value="green">绿色</option>
    </select>
-   <div id="box" ng-class="style"></div>
+   <!-- <div id="box" ng-class="style"></div> -->
+   <div id="box" ng-class="{red:style=='red',green:style=='green'}"></div>
 </body>
 <script src="bower_components/angular/angular.js"></script>
 <script>

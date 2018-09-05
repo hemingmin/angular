@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤器</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- angular放在这里，那么ng-cloak加上，那么就没有闪烁的小问题了 -->
+    <script src="bower_components/angular/angular.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body ng-app="app">
+    <div ng-controller="appController">
+        <ul>
+            <li ng-repeat="item in todos | filter:{completed:true}">
+                <span>{{item.id}}</span>
+                <span>{{item.text}}</span>
+                <span>{{item.completed}}</span>
+            </li>
+        </ul>
+    </div> 
+</body>
+
+<script>
+    angular.module('app',[])
+    .controller('appController',['$scope',function($scope){
+        $scope.todos = [
+			{id:1,text:'vue',completed:false},
+			{id:2,text:'react',completed:false},
+			{id:3,text:'angular',completed:true},
+			{id:3,text:'text is true or false',completed:false}
+		]
+    }])
+</script>
+</html>

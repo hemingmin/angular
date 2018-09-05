@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义指令</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- angular放在这里，那么ng-cloak加上，那么就没有闪烁的小问题了 -->
+    <script src="bower_components/angular/angular.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body ng-app="demoApp">
+    <!-- <itcastButton></itcastButton> -->
+    <itcast-button></itcast-button>
+    <btn-primary></btn-primary>
+    <btn-danger></btn-danger>
+</body>
+
+<script>
+    var app = angular.module('demoApp',[]);
+    app.directive('itcastButton',[function(){
+        // 该函数应该返回一个指令对象
+        return {
+            template:'<input type="button" value="itcast" class="btn btn-lg btn-primary btn-block" />'
+        }
+    }])
+    app.directive('btnPrimary',[function(){
+        // 该函数应该返回一个指令对象
+        return {
+            template:'<input type="button" value="itcast" class="btn btn-primary" />'
+        }
+    }])
+    app.directive('btnDanger',[function(){
+        // 该函数应该返回一个指令对象
+        return {
+            template:'<input type="button" value="itcast" class="btn btn-danger" />'
+        }
+    }])
+</script>
+</html>

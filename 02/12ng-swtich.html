@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ng-switch</title>
+    <!-- angular放在这里，那么ng-cloak加上，那么就没有闪烁的小问题了 -->
+    <script src="bower_components/angular/angular.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body ng-app>
+    <select name="" id="" ng-model="selected">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <div ng-switch="selected">
+        <div ng-switch-when="1">已选择1</div>
+        <div ng-switch-when="2">已选择2</div>
+        <div ng-switch-when="3">已选择3</div>
+        <div ng-switch-default>default</div>
+    </div>
+</body>
+
+<script>
+    
+</script>
+</html>
